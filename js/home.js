@@ -78,7 +78,4 @@ document.getElementById('withdraw-btn').addEventListener('click', function(e){
     console.log(afterWithdraw);
 
     
-
-
-
 })
