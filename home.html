@@ -47,12 +47,12 @@
 
         <!-- cart 1 -->
         <div class="min-h-[200px] grid grid-cols-3  gap-4 p-3 ">
-            <div class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="add-money-main" class="border-2 border-gray-300 text-center p-3 rounded-xl">
                 <img class="mx-auto" src="./assets/wallet1.png" alt="">
                 <h2 class="mt-1">Add Money</h2>
 
             </div>
-            <div class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="cashout-main" class="border-2 border-gray-300 text-center p-3 rounded-xl">
                 <img class="mx-auto" src="./assets/send1.png" alt="">
                 <h2 class="mt-1">Cashout</h2>
 
@@ -86,7 +86,7 @@
     <div class="all-from-section  max-w-lg mx-auto ">
 
         <!-- add money -->
-        <div class="">
+        <div id="add-money-parent">
             <h1 class=" my-5 font-semibold">Add Money</h1>
             <form action="" class="bg-white rounded-2xl p-8">
                 <div>
@@ -102,23 +102,55 @@
                     <label class="font-semibold " for="">Bank Account Number</label>
                     <br>
                     <input id="account-number" type="text" placeholder="Enter 11 Digit Number "
-                    class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full"/>
+                        class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full" />
                 </div>
                 <div class="mt-3">
                     <label class="font-semibold " for="">Amount to Add</label>
                     <br>
                     <input id="add-amount" type="text" placeholder="Add Amount to withdraw"
-                    class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full"/>
+                        class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full" />
                 </div>
                 <div class="mt-3">
                     <label class="font-semibold " for="">Pin Number</label>
                     <br>
                     <input id="add-pin" type="text" placeholder="Enter 4 Digit  Pin Number "
-                    class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full"/>
+                        class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full" />
                 </div>
-                <button id="add-money-btn" class="btn text-white text-[17px] bg-[#0874F2] mt-5 w-full rounded-3xl">Add Money</button>
+                <button id="add-money-btn" class="btn text-white text-[17px] bg-[#0874F2] mt-5 w-full rounded-3xl">Add
+                    Money</button>
             </form>
-            
+
+        </div>
+
+        <!-- cashout -->
+
+        <div id="cashout-parent">
+            <h1 class=" my-5 font-semibold">Cashout</h1>
+
+            <!-- Cashout from  -->
+            <form action="" class="bg-white rounded-2xl p-8">
+                <div class="mt-3">
+                    <label class="font-semibold " for="">Agent Number</label>
+                    <br>
+                    <input id="agent-number" type="text" placeholder="Enter 11 Digit Number "
+                        class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full" />
+                </div>
+                <div class="mt-3">
+                    <label class="font-semibold " for="">Amount</label>
+                    <br>
+                    <input id="add-amount-w" type="text" placeholder="Enter amount to withdraw"
+                        class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full" />
+                </div>
+                <div class="mt-3">
+                    <label class="font-semibold " for="">Pin Number</label>
+                    <br>
+                    <input id="add-pin-w" type="text" placeholder="Enter 4 Digit  Pin Number "
+                        class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full" />
+                </div>
+                <button id="withdraw-btn" class="btn text-white text-[17px] bg-[#0874F2] mt-5 w-full rounded-3xl">Withdraw
+                    Money</button>
+            </form>
+
         </div>
 
     </div>
