@@ -46,33 +46,33 @@
 
 
         <!-- cart 1 -->
-        <div class="min-h-[200px] grid grid-cols-3  gap-4 p-3 ">
-            <div id="add-money-main" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+        <div class=" min-h-[200px] grid grid-cols-3  gap-4 p-3 ">
+            <div id="add-money-main" class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl">
                 <img class="mx-auto" src="./assets/wallet1.png" alt="">
                 <h2 class="mt-1">Add Money</h2>
 
             </div>
-            <div id="cashout-main" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="cashout-main" class="form-btn border-2 border-gray-300 text-center p-3 rounded-xl">
                 <img class="mx-auto" src="./assets/send1.png" alt="">
                 <h2 class="mt-1">Cashout</h2>
 
             </div>
-            <div id="transfer-main" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="transfer-main" class="border-2  form-btn border-gray-300 text-center p-3 rounded-xl">
                 <img class="mx-auto" src="./assets/money1.png" alt="">
                 <h2 class="mt-1">Transfer Money</h2>
 
             </div>
-            <div id="get-bonus-main" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="get-bonus-main" class="border-2 form-btn  border-gray-300 text-center p-3 rounded-xl">
                 <img class="mx-auto" src="./assets/bonus1.png">
                 <h2 class="mt-1">Get Bonus</h2>
 
             </div>
-            <div id="pay-bill-main" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="pay-bill-main" class="border-2 form-btn border-gray-300 text-center p-3 rounded-xl">
                 <img class="mx-auto" src="./assets/purse1.png" alt="">
                 <h2 class="mt-1">Pay Bill</h2>
 
             </div>
-            <div id="transaction-main" class="border-2 border-gray-300 text-center p-3 rounded-xl">
+            <div id="transaction-main" class="border-2 form-btn border-gray-300 text-center p-3 rounded-xl">
                 <img class="mx-auto" src="./assets/transaction1.png" alt="">
                 <h2 class="mt-1">Transaction</h2>
 
@@ -83,7 +83,7 @@
 
     <!-- all from section -->
 
-    <div class="all-from-section  max-w-lg mx-auto ">
+    <div  class=" all-from-section  max-w-lg mx-auto ">
 
         <!-- add money -->
         <div class="form" id="add-money-parent">
@@ -124,7 +124,7 @@
 
         <!-- cashout -->
 
-        <div class="form"  id="cashout-parent">
+        <div class="form" id="cashout-parent">
             <h1 class=" my-5 font-semibold">Cashout</h1>
 
             <!-- Cashout from  -->
@@ -147,22 +147,45 @@
                     <input id="add-pin-w" type="text" placeholder="Enter 4 Digit  Pin Number "
                         class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full" />
                 </div>
-                <button id="withdraw-btn" class="btn text-white text-[17px] bg-[#0874F2] mt-5 w-full rounded-3xl">Withdraw
+                <button id="withdraw-btn"
+                    class="btn text-white text-[17px] bg-[#0874F2] mt-5 w-full rounded-3xl">Withdraw
                     Money</button>
             </form>
 
         </div>
 
         <!-- Transfer MOney -->
-         <div class="form"  id="transfer-parent" >
+        <div class="form" id="transfer-parent">
             <h1 class=" my-5 font-semibold">Transfer Money</h1>
-         </div>
-         <!-- Get Bonus -->
-         <div class="form"  id="get-bonus-parent" >
+        </div>
+        <!-- Get Bonus -->
+        <div class="form" id="get-bonus-parent">
             <h1 class=" my-5 font-semibold">Get Bonus</h1>
-         </div>
+        </div>
+        <!-- Pay Bill -->
+        <div class="form" id="pay-bill-parent">
+            <h1 class=" my-5 font-semibold">Pay Bill</h1>
+        </div>
+        <!-- Transaction -->
+        <div class="form" id="transaction-parent">
+            <div class="flex justify-between items-center">
+                <h1 class=" my-5 font-semibold">Transaction</h1>
+                <p class="text-[#08080880]">View All</p>
+            </div>
+            <!-- ------ -->
+            <div id="transaction-container">
+                
+            </div>
+
+        </div>
 
     </div>
+
+    <div>
+
+    </div>
+
+
 
     <script src="./js/home.js"></script>
 </body>

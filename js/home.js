@@ -1,29 +1,30 @@
 const validPin = 1234
+const transactionData = [];
 
 
 // function to get input values
 
-function getInputvalueNumber (id){
+function getInputvalueNumber(id) {
 
-   const inputField= document.getElementById(id)
-   const inputFieldValue = inputField.value
-   const inputFieldValueNumber = parseInt(inputFieldValue)
+    const inputField = document.getElementById(id)
+    const inputFieldValue = inputField.value
+    const inputFieldValueNumber = parseInt(inputFieldValue)
 
-   return inputFieldValueNumber
-
-}
-
-function getInputvalueValue (id){
-
-   const inputField= document.getElementById(id)
-   const inputFieldValue = inputField.value
-   
-
-   return inputFieldValue;
+    return inputFieldValueNumber
 
 }
 
-function getinnerText (id){
+function getInputvalueValue(id) {
+
+    const inputField = document.getElementById(id)
+    const inputFieldValue = inputField.value
+
+
+    return inputFieldValue;
+
+}
+
+function getinnerText(id) {
     const inner = document.getElementById(id)
     const text = inner.innerText
     const finalInner = parseInt(text)
@@ -31,39 +32,48 @@ function getinnerText (id){
     return finalInner
 }
 
-function setInnerText(value){
+function setInnerText(value) {
     const availableBalanceElement = document.getElementById('available-balance')
 
     availableBalanceElement.innerText = value
 }
 
-function togglehandle(id){
+function togglehandle(id) {
     const forms = document.getElementsByClassName('form')
-    
 
-    for(const from of forms){
+
+    for (const from of forms) {
         from.style.display = 'none'
     }
     document.getElementById(id).style.display = 'block'
 }
 
+function togglehandleButton(id) {
+    const fromButtons = document.getElementsByClassName("form-btn")
+
+    for (const fromButton of fromButtons) {
+        fromButton.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]')
+        fromButton.classList.add('border-gray-300')
+    }
+
+    document.getElementById(id).classList.remove('border-gray-300')
+    document.getElementById(id).classList.add('border-[#0874f2]', 'bg-[#0874f20d]')
+
+}
 
 
 document.getElementById('add-money-btn').addEventListener("click", function (e) {
     e.preventDefault()
-    console.log("Add Money button clicked")
-
-    // const bank = document.getElementById('bank').value
-
     const bank = getInputvalueValue('bank');
-    // const accountNumber = document.getElementById('account-number').value
-
 
     const accountNumber = getInputvalueValue('account-number')
 
     // const amount = parseInt(document.getElementById('add-amount').value)
     const amount = getInputvalueNumber('add-amount')
-    // const pin = parseInt(document.getElementById('add-pin').value)
+    if (amount <= 0){
+        alert('invalid amount')
+        return
+    }
 
     const pin = getInputvalueNumber('add-pin')
 
@@ -86,71 +96,35 @@ document.getElementById('add-money-btn').addEventListener("click", function (e) 
     }
 
     // document.getElementById('available-balance').innerText = totalNewAvailableBalance
-    setInnerText (totalNewAvailableBalance);
+    setInnerText(totalNewAvailableBalance);
 
-    console.log(availableBalance)
-
-})
-
-// btn handle
-
-document.getElementById('add-money-main').addEventListener('click', function () { 
-
-    // document.getElementById('cashout-parent').style.display = 'none'
-
-    // document.getElementById('add-money-parent').style.display = 'block'
-    // document.getElementById('transfer-parent').style.display = 'none'
-
-    // const forms = document.getElementsByClassName('form')
-    
-
-    // for(const from of forms){
-    //     from.style.display = 'none'
-    // }
-    // document.getElementById('add-money-parent').style.display = 'block'
-    togglehandle('add-money-parent')
-    
-
-})
-document.getElementById('cashout-main').addEventListener('click', function () { 
-
-    // document.getElementById('cashout-parent').style.display = 'block'
-
-    // document.getElementById('add-money-parent').style.display = 'none'
-    // document.getElementById('transfer-parent').style.display = 'none'
-    togglehandle('cashout-parent')
-
-})
-document.getElementById('transfer-main').addEventListener('click', function () { 
-    togglehandle('transfer-parent')
-
-})
-document.getElementById('get-bonus-main').addEventListener('click', function () { 
-    togglehandle('get-bonus-parent')
+    const data = {
+        name: "Add money",
+        date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data)
+    console.log(transactionData)
 
 })
 
 // cashout section
 
-document.getElementById('withdraw-btn').addEventListener('click', function(e){
+document.getElementById('withdraw-btn').addEventListener('click', function (e) {
     e.preventDefault()
     console.log('withdraw button clicked')
 
-    // const agentNumber = document.getElementById('agent-number').value
-
     const agentNumber = getInputvalueValue('agent-number');
-
-    // const withdrawAmount = parseInt(document.getElementById('add-amount-w').value)
 
     const withdrawAmount = getInputvalueNumber("add-amount-w")
 
-    // const pin = parseInt(document.getElementById('add-pin-w').value)
-
     const pin = getInputvalueNumber("add-pin-w")
 
-    // const availableBalance = parseInt(document.getElementById('available-balance').innerText)
+    const availableBalance = getinnerText('available-balance')
 
-    const availableBalance =  getinnerText('available-balance')
+    if(withdrawAmount <= 0 || withdrawAmount>availableBalance){
+        alert('Invalid Amount')
+        return
+    }
 
 
     if (agentNumber.length < 11) {
@@ -165,10 +139,77 @@ document.getElementById('withdraw-btn').addEventListener('click', function(e){
 
     const afterWithdraw = availableBalance - withdrawAmount
 
-    // document.getElementById('available-balance').innerText = afterWithdraw;
     setInnerText(afterWithdraw)
+    const data = {
+        name: "Cashout",
+        date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data)
+    console.log(transactionData)
+})
 
-    console.log(afterWithdraw);
+// transection 
 
-    
+document.getElementById('transaction-main').addEventListener('click', function () {
+    const transactionContainer = document.getElementById('transaction-container')
+    transactionContainer.innerText = ''
+
+    for (const data of transactionData) {
+        const div = document.createElement("div")
+        div.innerHTML = `<div class="bg-white rounded-xl p-3 flex justify-between items-center mt-3">
+                    <div class="flex items-center">
+                        <div class=" p-3 rounded-full bg-[#f4f5f7]">
+                            <img src="./assets/wallet1.png" class="mx-auto" alt="">
+                        </div>
+                        <div class="ml-3">
+                            <h1>${data.name}</h1>
+                            <p>${data.date}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                
+            `
+        transactionContainer.appendChild(div)
+    }
+})
+
+
+// btn handle
+
+document.getElementById('add-money-main').addEventListener('click', function () {
+
+    togglehandle('add-money-parent')
+    togglehandleButton('add-money-main')
+
+
+})
+document.getElementById('cashout-main').addEventListener('click', function () {
+    togglehandle('cashout-parent')
+    togglehandleButton('cashout-main')
+
+})
+
+document.getElementById('transfer-main').addEventListener('click', function () {
+    togglehandle('transfer-parent')
+    togglehandleButton('transfer-main')
+
+
+})
+document.getElementById('get-bonus-main').addEventListener('click', function () {
+    togglehandle('get-bonus-parent')
+    togglehandleButton('get-bonus-main')
+
+})
+document.getElementById('pay-bill-main').addEventListener('click', function () {
+    togglehandle('pay-bill-parent')
+    togglehandleButton('pay-bill-main')
+
+})
+document.getElementById('transaction-main').addEventListener('click', function () {
+    togglehandle('transaction-parent')
+    togglehandleButton('transaction-main')
+
 })
