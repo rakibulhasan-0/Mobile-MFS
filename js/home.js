@@ -37,6 +37,16 @@ function setInnerText(value){
     availableBalanceElement.innerText = value
 }
 
+function togglehandle(id){
+    const forms = document.getElementsByClassName('form')
+    
+
+    for(const from of forms){
+        from.style.display = 'none'
+    }
+    document.getElementById(id).style.display = 'block'
+}
+
 
 
 document.getElementById('add-money-btn').addEventListener("click", function (e) {
@@ -82,18 +92,41 @@ document.getElementById('add-money-btn').addEventListener("click", function (e) 
 
 })
 
+// btn handle
+
 document.getElementById('add-money-main').addEventListener('click', function () { 
 
-    document.getElementById('cashout-parent').style.display = 'none'
+    // document.getElementById('cashout-parent').style.display = 'none'
 
-    document.getElementById('add-money-parent').style.display = 'block'
+    // document.getElementById('add-money-parent').style.display = 'block'
+    // document.getElementById('transfer-parent').style.display = 'none'
+
+    // const forms = document.getElementsByClassName('form')
+    
+
+    // for(const from of forms){
+    //     from.style.display = 'none'
+    // }
+    // document.getElementById('add-money-parent').style.display = 'block'
+    togglehandle('add-money-parent')
+    
 
 })
 document.getElementById('cashout-main').addEventListener('click', function () { 
 
-    document.getElementById('cashout-parent').style.display = 'block'
+    // document.getElementById('cashout-parent').style.display = 'block'
 
-    document.getElementById('add-money-parent').style.display = 'none'
+    // document.getElementById('add-money-parent').style.display = 'none'
+    // document.getElementById('transfer-parent').style.display = 'none'
+    togglehandle('cashout-parent')
+
+})
+document.getElementById('transfer-main').addEventListener('click', function () { 
+    togglehandle('transfer-parent')
+
+})
+document.getElementById('get-bonus-main').addEventListener('click', function () { 
+    togglehandle('get-bonus-parent')
 
 })
 
