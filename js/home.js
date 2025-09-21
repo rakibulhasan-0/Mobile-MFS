@@ -70,7 +70,7 @@ document.getElementById('add-money-btn').addEventListener("click", function (e) 
 
     // const amount = parseInt(document.getElementById('add-amount').value)
     const amount = getInputvalueNumber('add-amount')
-    if (amount <= 0){
+    if (amount <= 0) {
         alert('invalid amount')
         return
     }
@@ -121,7 +121,7 @@ document.getElementById('withdraw-btn').addEventListener('click', function (e) {
 
     const availableBalance = getinnerText('available-balance')
 
-    if(withdrawAmount <= 0 || withdrawAmount>availableBalance){
+    if (withdrawAmount <= 0 || withdrawAmount > availableBalance) {
         alert('Invalid Amount')
         return
     }
@@ -157,24 +157,51 @@ document.getElementById('transaction-main').addEventListener('click', function (
     for (const data of transactionData) {
         const div = document.createElement("div")
         div.innerHTML = `<div class="bg-white rounded-xl p-3 flex justify-between items-center mt-3">
-                    <div class="flex items-center">
-                        <div class=" p-3 rounded-full bg-[#f4f5f7]">
-                            <img src="./assets/wallet1.png" class="mx-auto" alt="">
+                        <div class="flex items-center">
+                            <div class=" p-3 rounded-full bg-[#f4f5f7]">
+                                <img src="./assets/wallet1.png" class="mx-auto" alt="">
+                            </div>
+                            <div class="ml-3">
+                                <h1>${data.name}</h1>
+                                <p>${data.date}</p>
+                            </div>
                         </div>
-                        <div class="ml-3">
-                            <h1>${data.name}</h1>
-                            <p>${data.date}</p>
+                        <div>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
-                    <div>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-                
-            `
+
+                `
         transactionContainer.appendChild(div)
     }
 })
+
+
+// just reversed check
+
+
+//     for (const data of transactionData.slice().reverse()) {
+//         const div = document.createElement("div")
+//         div.innerHTML = `
+//         <div class="bg-white rounded-xl p-3 flex justify-between items-center mt-3">
+//             <div class="flex items-center">
+//                 <div class=" p-3 rounded-full bg-[#f4f5f7]">
+//                     <img src="./assets/wallet1.png" class="mx-auto" alt="">
+//                 </div>
+//                 <div class="ml-3">
+//                     <h1>${data.name}</h1>
+//                     <p>${data.date}</p>
+//                 </div>
+//             </div>
+//             <div>
+//                 <i class="fa-solid fa-ellipsis-vertical"></i>
+//             </div>
+//         </div>
+//     `
+//     transactionContainer.appendChild(div)
+//     } 
+// })
+
 
 
 // btn handle
